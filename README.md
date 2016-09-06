@@ -1,0 +1,2 @@
+# CITest
+Jenkins CI practise
