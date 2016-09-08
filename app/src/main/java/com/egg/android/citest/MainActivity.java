@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         mTextContent = (TextView) findViewById(R.id.text_main_content);
         mTextContent.setText("CI is OK");
-        mTextContent.setTextColor(Color.BLUE);
+        mTextContent.setTextColor(Color.GREEN);
 
     }
 }
