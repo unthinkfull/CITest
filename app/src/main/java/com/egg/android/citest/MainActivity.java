@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         mTextContent = (TextView) findViewById(R.id.text_main_content);
         mTextContent.setText("CI is OK, and apk is on fir.im http://fir.im/87dg");
-        mTextContent.setTextColor(Color.YELLOW);
+        mTextContent.setTextColor(Color.CYAN);
 
     }
 }
