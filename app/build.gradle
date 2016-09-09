@@ -17,15 +17,6 @@ android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
 
-    signingConfigs {
-        releaseConfig {
-            storeFile file('CITestkeys.jks')
-            storePassword "citest"
-            keyAlias "unthinkfull"
-            keyPassword "citest"
-        }
-    }
-
     defaultConfig {
         applicationId "com.egg.android.citest"
         minSdkVersion 14
@@ -33,6 +24,16 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    signingConfigs {
+        releaseConfig {
+            storeFile file("CITestKeys.jks")
+            storePassword "citest"
+            keyAlias "unthinkfull"
+            keyPassword "citest"
+        }
+    }
+
     buildTypes {
          release {
             signingConfig signingConfigs.releaseConfig
@@ -50,7 +51,7 @@ android {
         variant.outputs.each { output ->
             def outputFile = output.outputFile
             if (outputFile != null && outputFile.name.endsWith('.apk') && 'debug' != variant.buildType.name) {
-                def fileName = "CITest_v${defaultConfig.versionName}_${releaseTime()}_${variant.productFlavors.name}_${variant.buildType.name}.apk"
+                def fileName = "CITest_v${defaultConfig.versionName}_${releaseTime()}_${variant.buildType.name}.apk"
                 output.outputFile = new File(outputFile.parent, fileName)
             }
         }
