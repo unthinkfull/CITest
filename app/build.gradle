@@ -14,7 +14,7 @@ android {
     buildToolsVersion "23.0.1"
 
     signingConfigs {
-        myConfig {
+        release {
             storeFile file("CITestkeys.jks")
             storePassword "citest"
             keyAlias "unthinkfull"
@@ -31,7 +31,7 @@ android {
     }
     buildTypes {
         release {
-            signingConfig signingConfigs.myConfig
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
