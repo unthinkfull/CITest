@@ -17,14 +17,14 @@ android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
 
-//    signingConfigs {
-//        releaseConfig {
-//            storeFile file('CITestkeys.jks')
-//            storePassword "citest"
-//            keyAlias "unthinkfull"
-//            keyPassword "citest"
-//        }
-//    }
+    signingConfigs {
+        releaseConfig {
+            storeFile file('CITestkeys.jks')
+            storePassword "citest"
+            keyAlias "unthinkfull"
+            keyPassword "citest"
+        }
+    }
 
     defaultConfig {
         applicationId "com.egg.android.citest"
@@ -35,7 +35,7 @@ android {
     }
     buildTypes {
          release {
-//            signingConfig signingConfigs.releaseConfig
+            signingConfig signingConfigs.releaseConfig
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
