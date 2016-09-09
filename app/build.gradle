@@ -28,9 +28,9 @@ android {
     signingConfigs {
         releaseConfig {
             storeFile file("CITestKeys.jks")
-            storePassword "citest"
+            storePassword "eggJenkinsStorePassword"
             keyAlias "unthinkfull"
-            keyPassword "citest"
+            keyPassword "eggJenkinsKeyPassword"
         }
     }
 
