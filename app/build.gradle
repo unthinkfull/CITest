@@ -1,5 +1,9 @@
 apply plugin: 'com.android.application'
 
+def releaseTime() {
+    return new Date().format("yyyy_MM_dd_HH_mm")
+}
+
 buildscript {
     repositories {
         mavenCentral()
@@ -34,6 +38,21 @@ android {
             signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.apk') && 'debug' != variant.buildType.name) {
+                def fileName = "CITest_v${defaultConfig.versionName}_${releaseTime()}_${variant.productFlavors.name}_${variant.buildType.name}.apk"
+                output.outputFile = new File(outputFile.parent, fileName)
+            }
         }
     }
 }
